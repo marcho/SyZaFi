@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SyZaFi
+{
+    public partial class financesForm : Form
+    {
+        public financesForm()
+        {
+            InitializeComponent();
+        }
+
+        private void invoicesButton_Click(object sender, EventArgs e)
+        {
+            invoicesForm invoicesForm = new invoicesForm();
+            invoicesForm.Show();
+        }
+
+        private void financialOperationsButton_Click(object sender, EventArgs e)
+        {
+            financialOperationsForm financialOperationsForm = new financialOperationsForm();
+            financialOperationsForm.Show();
+        }
+
+        private void financialRaportsButton_Click(object sender, EventArgs e)
+        {
+            financialRaportsForm financialRaportsForm = new financialRaportsForm();
+            financialRaportsForm.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

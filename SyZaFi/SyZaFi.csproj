@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA90E391-2C0C-423F-BBF2-F30E4015A2C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SyZaFi</RootNamespace>
+    <AssemblyName>SyZaFi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBDataSerialization.cs" />
+    <Compile Include="configurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="configurationForm.Designer.cs">
+      <DependentUpon>configurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createNewAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createNewAccountForm.Designer.cs">
+      <DependentUpon>createNewAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="deleteAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deleteAccountForm.Designer.cs">
+      <DependentUpon>deleteAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="deleteEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deleteEmployeeForm.Designer.cs">
+      <DependentUpon>deleteEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editEmployeeForm.Designer.cs">
+      <DependentUpon>editEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="financesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="financesForm.Designer.cs">
+      <DependentUpon>financesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="financialOperationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="financialOperationsForm.Designer.cs">
+      <DependentUpon>financialOperationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="financialRaportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="financialRaportsForm.Designer.cs">
+      <DependentUpon>financialRaportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forgotBothForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forgotBothForm.Designer.cs">
+      <DependentUpon>forgotBothForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forgotCredentialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forgotCredentialsForm.Designer.cs">
+      <DependentUpon>forgotCredentialsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forgotLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forgotLoginForm.Designer.cs">
+      <DependentUpon>forgotLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forgotPasswordForm.Designer.cs">
+      <DependentUpon>forgotPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hrForm.Designer.cs">
+      <DependentUpon>hrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="installationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="installationForm.Designer.cs">
+      <DependentUpon>installationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inventoryForm.Designer.cs">
+      <DependentUpon>inventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="invoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invoicesForm.Designer.cs">
+      <DependentUpon>invoicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logisticsForm.Designer.cs">
+      <DependentUpon>logisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="migrateDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="migrateDatabaseForm.Designer.cs">
+      <DependentUpon>migrateDatabaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modifyAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifyAccountForm.Designer.cs">
+      <DependentUpon>modifyAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="newEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newEmployeeForm.Designer.cs">
+      <DependentUpon>newEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ordersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ordersForm.Designer.cs">
+      <DependentUpon>ordersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ownerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ownerForm.Designer.cs">
+      <DependentUpon>ownerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productionForm.Designer.cs">
+      <DependentUpon>productionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productionPlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productionPlanForm.Designer.cs">
+      <DependentUpon>productionPlanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PwdEncryption.cs" />
+    <EmbeddedResource Include="configurationForm.resx">
+      <DependentUpon>configurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createNewAccountForm.resx">
+      <DependentUpon>createNewAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deleteAccountForm.resx">
+      <DependentUpon>deleteAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="financesForm.resx">
+      <DependentUpon>financesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forgotBothForm.resx">
+      <DependentUpon>forgotBothForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forgotCredentialsForm.resx">
+      <DependentUpon>forgotCredentialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forgotLoginForm.resx">
+      <DependentUpon>forgotLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forgotPasswordForm.resx">
+      <DependentUpon>forgotPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hrForm.resx">
+      <DependentUpon>hrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="installationForm.resx">
+      <DependentUpon>installationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logisticsForm.resx">
+      <DependentUpon>logisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifyAccountForm.resx">
+      <DependentUpon>modifyAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newEmployeeForm.resx">
+      <DependentUpon>newEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ownerForm.resx">
+      <DependentUpon>ownerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productionForm.resx">
+      <DependentUpon>productionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="createAdminAccountSource.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="createTableSource.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
+  </Target>
+</Project>
