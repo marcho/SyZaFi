@@ -203,5 +203,18 @@ namespace SyZaFi
             }
             return data;
         }
+
+        public void InsertNewEmployee(string firstName, string lastName, string fathersName, string mothersName, string birthday, string placeOfResidence, string correspondenceAddress, string education, string historyOfEmployment, int pesel, string childrensNames, string childrensBirthdays)
+        {
+            string query = "INSERT INTO employees (firstName, lastName, fathersName, mothersName, birthday, placeOfResidence, correspondenceAddress, education, historyOfEmployment, pesel, childrensNames, childrensBirthdays)" +
+                " VALUES('" + firstName + "', '" + lastName + "', '" + fathersName + "', '" + mothersName + "', '" + birthday + "', '" + placeOfResidence + "', '" + correspondenceAddress + "', '" + education + "', '" + historyOfEmployment + "', '" + pesel + "', '" + childrensNames + "', '" + childrensBirthdays + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
     }
 }
