@@ -16,6 +16,7 @@ namespace SyZaFi
 {
     public partial class loginForm : Form
     {
+        public static string loginForLogs;
         public loginForm()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace SyZaFi
             Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
             DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
             DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
-
+            loginForLogs = loginTextBox.Text;
             string login = loginTextBox.Text;
             PwdEncryption pwde = new PwdEncryption();
             if (dBConnection.ConnectionTest())
@@ -55,6 +56,7 @@ namespace SyZaFi
                 }
                 if (loginSuccessfull)
                 {
+                    logWriting logWriting = new logWriting("Użytkownik się zalogował.");
                     var passwordFromDb = list[1].ElementAt(indexOfLogin);
                     var workgroupFromDb = list[2].ElementAt(indexOfLogin);
                     if (passwordFromDb == adminPassword)

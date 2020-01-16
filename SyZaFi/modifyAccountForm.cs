@@ -66,7 +66,6 @@ namespace SyZaFi
             string firstName = firstNameTextBox.Text;
             string lastName = lastNameTextBox.Text;
             string login = loginTextBox.Text;
-            //string password = passwordTextBox.Text;
             string emailAddress = emailAddressTextBox.Text;
             string birthday = birthdayTextBox.Text;
             string employmentMonth = employmentTextBox.Text;

@@ -86,7 +86,6 @@ namespace SyZaFi
                 var lastName = lastNameTextBox.Text;
                 var birthday = dayOfBirth + "/" + monthOfBirth + "/" + yearOfBirth;
                 var login = loginTextBox.Text;
-                //var password = passwordTextBox.Text;
                 var employmentMonth = employmentMonthDatePicker.Value.Month.ToString();
                 var emailAddress = emailAddressTextBox.Text;
                 PwdEncryption pwde = new PwdEncryption();
@@ -98,6 +97,8 @@ namespace SyZaFi
                 {
                     dBConnection.InsertNewAccount(firstName, lastName, birthday, workgroup, login, password, pwdhash, employmentMonth, emailAddress);
                 }
+
+                logWriting logWriting = new logWriting("Użytkownik dodał nowe konto - " + login);
             }
         }
 
