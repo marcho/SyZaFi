@@ -110,8 +110,7 @@ namespace SyZaFi
 
         private void forgotCredentialsButton_Click(object sender, EventArgs e)
         {
-            forgotCredentialsForm forgotCredentialsForm = new forgotCredentialsForm();
-            forgotCredentialsForm.Show();
+            MessageBox.Show("Aby przypomnieć dane, udaj się do Administratora systemu.", "Przypomnienie danych", MessageBoxButtons.OK);
         }
     }
 }
