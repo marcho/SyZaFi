@@ -17,7 +17,7 @@ namespace SyZaFi
         {
             string path = @"conf.bin";
 
-            if (File.Exists(path)/* | truewyjebac to potem*/)
+            if (File.Exists(path))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

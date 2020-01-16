@@ -7,17 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+/*
+ * TODO:
+ * Figure out a way to have 'connection code' in one place.
+ * */
 namespace SyZaFi
 {
     public partial class modifyAccountForm : Form
     {
-        DBConnection dBConnection = new DBConnection("localhost", "syzafi", "root", "");
         string id;
 
         public modifyAccountForm()
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
             InitializeComponent();
             List<string>[] list = dBConnection.CheckLogin();
             var index = 0;
@@ -30,6 +39,11 @@ namespace SyZaFi
 
         private void existingAccountsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
             List<string>[] list = dBConnection.CheckLogin();
             firstNameTextBox.Text = list[3].ElementAt(existingAccountsListBox.SelectedIndex).ToString();
             lastNameTextBox.Text = list[4].ElementAt(existingAccountsListBox.SelectedIndex).ToString();
@@ -44,6 +58,11 @@ namespace SyZaFi
 
         private void modifyAccountButton_Click(object sender, EventArgs e)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
             string firstName = firstNameTextBox.Text;
             string lastName = lastNameTextBox.Text;
             string login = loginTextBox.Text;

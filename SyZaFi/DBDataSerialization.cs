@@ -9,12 +9,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SyZaFi
 {
-    /* potrzebuję tu zapisać i wczytać następujące dane:
-         * 1. host bazy danych
-         * 2. nazwę bazy danych
-         * 3. login do bazy danych
-         * 4. hasło do bazy danych
-         * */
     [Serializable]
     public class DBDataSerialization
     {

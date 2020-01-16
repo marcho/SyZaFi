@@ -22,7 +22,6 @@ namespace SyZaFi
         private void installButton_Click(object sender, EventArgs e)
         {
             string adminLogin = adminLoginTextBox.Text;
-            //string adminPassword = adminPasswordTextBox.Text;
             string adminFirstName = adminFirstNameTextBox.Text;
             string adminLastName = adminLastNameTextBox.Text;
             string adminEmail = adminEmailTextBox.Text;

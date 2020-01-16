@@ -32,8 +32,8 @@ namespace SyZaFi
             Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
             DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
             DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
             string login = loginTextBox.Text;
-            //string password = passwordTextBox.Text;
             PwdEncryption pwde = new PwdEncryption();
             if (dBConnection.ConnectionTest())
             {

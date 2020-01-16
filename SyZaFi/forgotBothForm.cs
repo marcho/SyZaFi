@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace SyZaFi
 {
@@ -34,7 +37,11 @@ namespace SyZaFi
             string emailAddres = emailTextBox.Text;
             string employmentMonth = monthOfEmploymentTextBox.Text;
 
-            DBConnection dBConnection = new DBConnection("localhost", "syzafi", "root", "");
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
             if (dBConnection.ConnectionTest())
             {
                 List<string>[] list = dBConnection.CheckLogin();
