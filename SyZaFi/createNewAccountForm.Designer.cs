@@ -253,7 +253,7 @@
             this.Controls.Add(this.firstNameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "createNewAccountForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Utwórz nowe konto";
             this.ResumeLayout(false);
             this.PerformLayout();

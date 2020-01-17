@@ -135,6 +135,7 @@
             this.Name = "configurationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel Konfiguracyjny - System Zarządzania Firmą";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.configurationForm_FormClosing);
             this.ResumeLayout(false);
 
         }

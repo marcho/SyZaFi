@@ -67,36 +67,42 @@ namespace SyZaFi
                                 {
                                     ownerForm ownerForm = new ownerForm();
                                     ownerForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                             case "hr":
                                 {
                                     hrForm hrForm = new hrForm();
                                     hrForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                             case "finances":
                                 {
                                     financesForm financesForm = new financesForm();
                                     financesForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                             case "logistics":
                                 {
                                     logisticsForm logisticsForm = new logisticsForm();
                                     logisticsForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                             case "production":
                                 {
                                     productionForm productionForm = new productionForm();
                                     productionForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                             case "administrator":
                                 {
                                     configurationForm configurationForm = new configurationForm();
                                     configurationForm.Show();
+                                    this.Hide();
                                     break;
                                 }
                         }

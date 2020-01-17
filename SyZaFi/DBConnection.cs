@@ -216,5 +216,103 @@ namespace SyZaFi
                 CloseConnection();
             }
         }
+
+        public List<string>[] EmployeesList()
+        {
+            string query = "SELECT * FROM employees";
+
+            List<string>[] list = new List<string>[12];
+            list[0] = new List<string>(); //firstName
+            list[1] = new List<string>(); //lastName
+            list[2] = new List<string>(); //fathersName
+            list[3] = new List<string>(); //mothersName
+            list[4] = new List<string>(); //birthday
+            list[5] = new List<string>(); //placeOfResidence
+            list[6] = new List<string>(); //correspondenceAddress
+            list[7] = new List<string>(); //education
+            list[8] = new List<string>(); //historyOfEmployment
+            list[9] = new List<string>(); //pesel
+            list[10] = new List<string>(); //childrensNames
+            list[11] = new List<string>(); //childrensBirthdays
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["firstName"] + "");
+                    list[1].Add(dataReader["lastName"] + "");
+                    list[2].Add(dataReader["fathersName"] + "");
+                    list[3].Add(dataReader["mothersName"] + "");
+                    list[4].Add(dataReader["birthday"] + "");
+                    list[5].Add(dataReader["placeOfResidence"] + "");
+                    list[6].Add(dataReader["correspondenceAddress"] + "");
+                    list[7].Add(dataReader["education"] + "");
+                    list[8].Add(dataReader["historyOfEmployment"] + "");
+                    list[9].Add(dataReader["pesel"] + "");
+                    list[10].Add(dataReader["childrensNames"] + "");
+                    list[11].Add(dataReader["childrensBirthdays"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public List<string>[] DeletedEmployeesList()
+        {
+            string query = "SELECT * FROM deletedemployees";
+
+            List<string>[] list = new List<string>[12];
+            list[0] = new List<string>(); //firstName
+            list[1] = new List<string>(); //lastName
+            list[2] = new List<string>(); //fathersName
+            list[3] = new List<string>(); //mothersName
+            list[4] = new List<string>(); //birthday
+            list[5] = new List<string>(); //placeOfResidence
+            list[6] = new List<string>(); //correspondenceAddress
+            list[7] = new List<string>(); //education
+            list[8] = new List<string>(); //historyOfEmployment
+            list[9] = new List<string>(); //pesel
+            list[10] = new List<string>(); //childrensNames
+            list[11] = new List<string>(); //childrensBirthdays
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["firstName"] + "");
+                    list[1].Add(dataReader["lastName"] + "");
+                    list[2].Add(dataReader["fathersName"] + "");
+                    list[3].Add(dataReader["mothersName"] + "");
+                    list[4].Add(dataReader["birthday"] + "");
+                    list[5].Add(dataReader["placeOfResidence"] + "");
+                    list[6].Add(dataReader["correspondenceAddress"] + "");
+                    list[7].Add(dataReader["education"] + "");
+                    list[8].Add(dataReader["historyOfEmployment"] + "");
+                    list[9].Add(dataReader["pesel"] + "");
+                    list[10].Add(dataReader["childrensNames"] + "");
+                    list[11].Add(dataReader["childrensBirthdays"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
     }
 }

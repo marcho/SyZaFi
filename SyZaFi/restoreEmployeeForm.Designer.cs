@@ -1,6 +1,6 @@
 ﻿namespace SyZaFi
 {
-    partial class editEmployeeForm
+    partial class restoreEmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.employeesListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // editEmployeeForm
+            // employeesListBox
+            // 
+            this.employeesListBox.FormattingEnabled = true;
+            this.employeesListBox.Location = new System.Drawing.Point(12, 12);
+            this.employeesListBox.Name = "employeesListBox";
+            this.employeesListBox.Size = new System.Drawing.Size(260, 95);
+            this.employeesListBox.TabIndex = 0;
+            // 
+            // restoreEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(284, 411);
+            this.Controls.Add(this.employeesListBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "editEmployeeForm";
+            this.Name = "restoreEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edytuj pracownika";
+            this.Text = "Przywróć pracownika";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox employeesListBox;
     }
 }

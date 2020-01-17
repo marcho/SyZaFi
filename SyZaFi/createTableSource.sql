@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `syzafi`
 --
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `deletedemployees`
+--
+
+CREATE TABLE `deletedemployees` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `lastName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `fathersName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `mothersName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `birthday` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `placeOfResidence` varchar(500) COLLATE utf8_polish_ci NOT NULL,
+  `correspondenceAddress` varchar(500) COLLATE utf8_polish_ci NOT NULL,
+  `education` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `historyOfEmployment` varchar(500) COLLATE utf8_polish_ci NOT NULL,
+  `pesel` int(11) NOT NULL,
+  `childrensNames` varchar(500) COLLATE utf8_polish_ci NOT NULL,
+  `childrensBirthdays` varchar(500) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -68,6 +89,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indeksy dla tabeli `deletedemployees`
+--
+ALTER TABLE `deletedemployees`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `employees`
 --
 ALTER TABLE `employees`
@@ -84,16 +111,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `deletedemployees`
+--
+ALTER TABLE `deletedemployees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

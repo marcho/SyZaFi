@@ -30,19 +30,20 @@ namespace SyZaFi
         private void createNewAccountButton_Click(object sender, EventArgs e)
         {
             createNewAccountForm createNewAccountForm = new createNewAccountForm();
-            createNewAccountForm.Show();
+            createNewAccountForm.ShowDialog();
+
         }
 
         private void modifyAccountButton_Click(object sender, EventArgs e)
         {
             modifyAccountForm modifyAccountForm = new modifyAccountForm();
-            modifyAccountForm.Show();
+            modifyAccountForm.ShowDialog();
         }
 
         private void deleteAccountButton_Click(object sender, EventArgs e)
         {
             deleteAccountForm deleteAccountForm = new deleteAccountForm();
-            deleteAccountForm.Show();
+            deleteAccountForm.ShowDialog();
         }
 
         private void checkLogsButton_Click(object sender, EventArgs e)
@@ -53,10 +54,15 @@ namespace SyZaFi
         private void migrateDatabaseButton_Click(object sender, EventArgs e)
         {
             migrateDatabaseForm migrateDatabaseForm = new migrateDatabaseForm();
-            migrateDatabaseForm.Show();
+            migrateDatabaseForm.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void configurationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

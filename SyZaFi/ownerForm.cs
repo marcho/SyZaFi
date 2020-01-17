@@ -20,30 +20,36 @@ namespace SyZaFi
         private void financesButton_Click(object sender, EventArgs e)
         {
             financesForm financesForm = new financesForm();
-            financesForm.Show();
+            financesForm.ShowDialog();
         }
 
         private void hrButton_Click(object sender, EventArgs e)
         {
             hrForm hrForm = new hrForm();
-            hrForm.Show();
+            hrForm.ShowDialog();
         }
 
         private void logisticsButton_Click(object sender, EventArgs e)
         {
             logisticsForm logisticsForm = new logisticsForm();
-            logisticsForm.Show();
+            logisticsForm.ShowDialog();
         }
 
         private void productionButton_Click(object sender, EventArgs e)
         {
             productionForm productionForm = new productionForm();
-            productionForm.Show();
+            productionForm.ShowDialog();
         }
 
         private void exitApplicationButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void restoreEmployeeButton_Click(object sender, EventArgs e)
+        {
+            restoreEmployeeForm restoreEmployeeForm = new restoreEmployeeForm();
+            restoreEmployeeForm.ShowDialog();
         }
     }
 }

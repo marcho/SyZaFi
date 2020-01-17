@@ -20,13 +20,13 @@ namespace SyZaFi
         private void inventoryButton_Click(object sender, EventArgs e)
         {
             inventoryForm inventoryForm = new inventoryForm();
-            inventoryForm.Show();
+            inventoryForm.ShowDialog();
         }
 
         private void ordersButton_Click(object sender, EventArgs e)
         {
             ordersForm ordersForm = new ordersForm();
-            ordersForm.Show();
+            ordersForm.ShowDialog();
         }
 
         private void exitApplicationButton_Click(object sender, EventArgs e)

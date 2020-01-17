@@ -196,6 +196,7 @@
             // 
             // birthdayDateTimePicker
             // 
+            this.birthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(120, 64);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
             this.birthdayDateTimePicker.Size = new System.Drawing.Size(100, 20);
@@ -325,6 +326,7 @@
             this.Controls.Add(this.firstName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "newEmployeeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj pracownika";
             this.ResumeLayout(false);
             this.PerformLayout();

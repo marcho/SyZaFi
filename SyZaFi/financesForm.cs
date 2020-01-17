@@ -20,19 +20,19 @@ namespace SyZaFi
         private void invoicesButton_Click(object sender, EventArgs e)
         {
             invoicesForm invoicesForm = new invoicesForm();
-            invoicesForm.Show();
+            invoicesForm.ShowDialog();
         }
 
         private void financialOperationsButton_Click(object sender, EventArgs e)
         {
             financialOperationsForm financialOperationsForm = new financialOperationsForm();
-            financialOperationsForm.Show();
+            financialOperationsForm.ShowDialog();
         }
 
         private void financialRaportsButton_Click(object sender, EventArgs e)
         {
             financialRaportsForm financialRaportsForm = new financialRaportsForm();
-            financialRaportsForm.Show();
+            financialRaportsForm.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)

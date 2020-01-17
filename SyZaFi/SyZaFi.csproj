@@ -137,6 +137,12 @@
     <Compile Include="financialRaportsForm.Designer.cs">
       <DependentUpon>financialRaportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="generateFilesSingleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="generateFilesSingleForm.Designer.cs">
+      <DependentUpon>generateFilesSingleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="hrForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PwdEncryption.cs" />
+    <Compile Include="restoreEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="restoreEmployeeForm.Designer.cs">
+      <DependentUpon>restoreEmployeeForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="configurationForm.resx">
       <DependentUpon>configurationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,8 +240,23 @@
     <EmbeddedResource Include="deleteAccountForm.resx">
       <DependentUpon>deleteAccountForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="deleteEmployeeForm.resx">
+      <DependentUpon>deleteEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editEmployeeForm.resx">
+      <DependentUpon>editEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="financesForm.resx">
       <DependentUpon>financesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="financialOperationsForm.resx">
+      <DependentUpon>financialOperationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="financialRaportsForm.resx">
+      <DependentUpon>financialRaportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generateFilesSingleForm.resx">
+      <DependentUpon>generateFilesSingleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hrForm.resx">
       <DependentUpon>hrForm.cs</DependentUpon>
@@ -237,11 +264,20 @@
     <EmbeddedResource Include="installationForm.resx">
       <DependentUpon>installationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="inventoryForm.resx">
+      <DependentUpon>inventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="invoicesForm.resx">
+      <DependentUpon>invoicesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="logisticsForm.resx">
       <DependentUpon>logisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="migrateDatabaseForm.resx">
+      <DependentUpon>migrateDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifyAccountForm.resx">
       <DependentUpon>modifyAccountForm.cs</DependentUpon>
@@ -249,11 +285,17 @@
     <EmbeddedResource Include="newEmployeeForm.resx">
       <DependentUpon>newEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ordersForm.resx">
+      <DependentUpon>ordersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ownerForm.resx">
       <DependentUpon>ownerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="productionForm.resx">
       <DependentUpon>productionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productionPlanForm.resx">
+      <DependentUpon>productionPlanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -264,6 +306,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="restoreEmployeeForm.resx">
+      <DependentUpon>restoreEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="files\Aneks - podwyżka.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="files\Aneks - zmiana stanowiska.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="files\Regulamin pracy.pdf" />
+    <None Include="files\Umowa o dzieło - wzór.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="files\Umowa o pracę - wzór.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="files\Umowa zlecenie - wzór.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="log\log.log">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -312,6 +373,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

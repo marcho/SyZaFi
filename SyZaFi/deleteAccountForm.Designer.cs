@@ -82,7 +82,9 @@
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.existingAccountsListBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "deleteAccountForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuń istniejące konto";
             this.ResumeLayout(false);
 

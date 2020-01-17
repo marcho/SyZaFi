@@ -85,7 +85,7 @@
             this.Controls.Add(this.invoicesButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "financesForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Finanse - System Zarządzania Firmą";
             this.ResumeLayout(false);
 

@@ -20,13 +20,13 @@ namespace SyZaFi
         private void ordersButton_Click(object sender, EventArgs e)
         {
             ordersForm ordersForm = new ordersForm();
-            ordersForm.Show();
+            ordersForm.ShowDialog();
         }
 
         private void productionPlanButton_Click(object sender, EventArgs e)
         {
             productionPlanForm productionPlanForm = new productionPlanForm();
-            productionPlanForm.Show();
+            productionPlanForm.ShowDialog();
         }
 
         private void exitApplicationButton_Click(object sender, EventArgs e)
