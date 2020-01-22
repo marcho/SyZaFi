@@ -30,7 +30,6 @@
         {
             this.invoicesButton = new System.Windows.Forms.Button();
             this.financialOperationsButton = new System.Windows.Forms.Button();
-            this.financialRaportsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,16 +53,6 @@
             this.financialOperationsButton.UseVisualStyleBackColor = true;
             this.financialOperationsButton.Click += new System.EventHandler(this.financialOperationsButton_Click);
             // 
-            // financialRaportsButton
-            // 
-            this.financialRaportsButton.Location = new System.Drawing.Point(12, 168);
-            this.financialRaportsButton.Name = "financialRaportsButton";
-            this.financialRaportsButton.Size = new System.Drawing.Size(260, 72);
-            this.financialRaportsButton.TabIndex = 4;
-            this.financialRaportsButton.Text = "Raporty finansowe";
-            this.financialRaportsButton.UseVisualStyleBackColor = true;
-            this.financialRaportsButton.Click += new System.EventHandler(this.financialRaportsButton_Click);
-            // 
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(12, 327);
@@ -80,7 +69,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.financialRaportsButton);
             this.Controls.Add(this.financialOperationsButton);
             this.Controls.Add(this.invoicesButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -95,7 +83,6 @@
 
         private System.Windows.Forms.Button invoicesButton;
         private System.Windows.Forms.Button financialOperationsButton;
-        private System.Windows.Forms.Button financialRaportsButton;
         private System.Windows.Forms.Button exitButton;
     }
 }

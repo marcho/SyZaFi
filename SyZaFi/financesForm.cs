@@ -29,12 +29,6 @@ namespace SyZaFi
             financialOperationsForm.ShowDialog();
         }
 
-        private void financialRaportsButton_Click(object sender, EventArgs e)
-        {
-            financialRaportsForm financialRaportsForm = new financialRaportsForm();
-            financialRaportsForm.ShowDialog();
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

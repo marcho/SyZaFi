@@ -314,5 +314,63 @@ namespace SyZaFi
                 return list;
             }
         }
+
+        public List<string>[] CheckFinancialOperations()
+        {
+            string query = "SELECT * FROM financialoperations";
+
+            List<string>[] list = new List<string>[4];
+            list[0] = new List<string>(); //receiver
+            list[1] = new List<string>(); //amount
+            list[2] = new List<string>(); //category
+            list[3] = new List<string>(); // id
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["receiver"] + "");
+                    list[1].Add(dataReader["amount"] + "");
+                    list[2].Add(dataReader["category"] + "");
+                    list[3].Add(dataReader["id"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public void DeleteFinancialOperation(string id)
+        {
+            string query = "DELETE FROM financialoperations WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void InsertNewFinancialOperation(string receiver, string amount, string category)
+        {
+            string query = "INSERT INTO financialoperations (receiver, amount, category)" +
+                " VALUES('" + receiver + "', '" + amount + "', '" + category + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
     }
 }

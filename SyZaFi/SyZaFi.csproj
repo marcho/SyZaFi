@@ -87,6 +87,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addFinancialOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addFinancialOperation.Designer.cs">
+      <DependentUpon>addFinancialOperation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBDataSerialization.cs" />
     <Compile Include="configurationForm.cs">
       <SubType>Form</SubType>
@@ -130,12 +136,6 @@
     </Compile>
     <Compile Include="financialOperationsForm.Designer.cs">
       <DependentUpon>financialOperationsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="financialRaportsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="financialRaportsForm.Designer.cs">
-      <DependentUpon>financialRaportsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="generateFilesSingleForm.cs">
       <SubType>Form</SubType>
@@ -231,6 +231,9 @@
     <Compile Include="restoreEmployeeForm.Designer.cs">
       <DependentUpon>restoreEmployeeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addFinancialOperation.resx">
+      <DependentUpon>addFinancialOperation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="configurationForm.resx">
       <DependentUpon>configurationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,9 +254,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="financialOperationsForm.resx">
       <DependentUpon>financialOperationsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="financialRaportsForm.resx">
-      <DependentUpon>financialRaportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="generateFilesSingleForm.resx">
       <DependentUpon>generateFilesSingleForm.cs</DependentUpon>

@@ -22,12 +22,13 @@ namespace SyZaFi
 
         public modifyAccountForm()
         {
+            InitializeComponent();
+
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
             DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
             DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
-
-            InitializeComponent();
+            
             List<string>[] list = dBConnection.CheckLogin();
             var index = 0;
             foreach (var item in list[3])
