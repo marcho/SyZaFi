@@ -681,7 +681,7 @@ namespace SyZaFi
             }
         }
 
-        public void InsertNewCompany(string companyName, int companyNIP, int companyREGON, int companyKRS)
+        public void InsertNewCompany(string companyName, int companyNIP, long companyREGON, int companyKRS)
         {
             string query = "INSERT INTO companydetails (companyName, companyNIP, companyREGON, companyKRS)" +
                 " VALUES('" + companyName + "', '" + companyNIP + "', '" + companyREGON + "', '" + companyKRS + "')";

@@ -1,13 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SyZaFi
@@ -19,7 +12,7 @@ namespace SyZaFi
         {
             InitializeComponent();
         }
-        
+
         private void installButton_Click(object sender, EventArgs e)
         {
             string adminLogin = adminLoginTextBox.Text;
@@ -41,47 +34,96 @@ namespace SyZaFi
 
             progressBar.Visible = true;
             progressBar.Value = 0;
-
             DBConnection dBConnection = new DBConnection(databaseHost, databaseName, databaseLogin, databasePassword);
-            createTable();
-            dBConnection.CreateTable();
-
-            PwdEncryption pwde = new PwdEncryption();
-            string adminPassword = pwde.GenerateHash(adminPasswordTextBox.Text);
-            string adminPwdSalt = File.ReadAllText("salt.txt");
-            File.Delete("salt.txt");
-
-            insertDataIntoSQLFiles(adminLogin, adminPassword, adminPwdSalt, adminFirstName, adminLastName, adminEmail, adminBirthday, workgroup, monthOfEmployment);
-            dBConnection.CreateAdmin();
-
-            progressBar.Value = 20;
-
-            var companyName = companyNameTextBox.Text;
-            var companyNIP = int.Parse(companyNIPTextBox.Text);
-            var companyREGON = int.Parse(companyREGONTextBox.Text);
-            var companyKRS = int.Parse(companyKRSTextBox.Text);
-            dBConnection.InsertNewCompany(companyName, companyNIP, companyREGON, companyKRS);
-
-            
             if (!dBConnection.ConnectionTest())
             {
-                adminLoginTextBox.Text = null;
-                adminPasswordTextBox.Text = null;
-                adminFirstNameTextBox.Text = null;
-                adminLastNameTextBox.Text = null;
                 databaseHostTextBox.Text = null;
                 databasePasswordTextBox.Text = null;
                 databaseNameTextBox.Text = null;
                 databaseLoginTextBox.Text = null;
                 progressBar.Value = 0;
             }
+            else if (string.IsNullOrWhiteSpace(adminLoginTextBox.Text))
+            {
+                MessageBox.Show("Login administratora nie może być pusty!", "Pusty login administratora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(adminPasswordTextBox.Text))
+            {
+                MessageBox.Show("Hasło administratora nie może być puste!", "Puste hasło administratora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(adminFirstNameTextBox.Text))
+            {
+                MessageBox.Show("Imię administratora nie może być puste!", "Puste imię administratora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(adminLastNameTextBox.Text))
+            {
+                MessageBox.Show("Nazwisko administratora nie może być puste!", "Puste nazwisko administratora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(adminEmailTextBox.Text))
+            {
+                MessageBox.Show("Adres e-mail administratora nie może być pusty!", "Pusty adres e-mail administratora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(databaseHostTextBox.Text))
+            {
+                MessageBox.Show("Host bazy danych nie może być pusty!", "Pusty host bazy danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(databasePasswordTextBox.Text))
+            {
+                MessageBox.Show("Hasło do bazy danych nie może być puste!", "Puste hasło do bazy danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(databaseNameTextBox.Text))
+            {
+                MessageBox.Show("Nazwa bazy danych nie może być pusta!", "Pusta nazwa bazy danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(databaseLoginTextBox.Text))
+            {
+                MessageBox.Show("Login do bazy danych nie może być pusty!", "Pusty login do bazy danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(companyNameTextBox.Text))
+            {
+                MessageBox.Show("Nazwa firmy nie może być pusta!", "Pusta nazwa firmy", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(companyNIPTextBox.Text))
+            {
+                MessageBox.Show("NIP nie może być pusty!", "Pusty NIP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(companyREGONTextBox.Text))
+            {
+                MessageBox.Show("REGON nie może być pusty!", "Pusty REGON", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(companyKRSTextBox.Text))
+            {
+                MessageBox.Show("KRS nie może być pusty!", "Pusty KRS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
+
+                createTable();
+                dBConnection.CreateTable();
+
+                PwdEncryption pwde = new PwdEncryption();
+                string adminPassword = pwde.GenerateHash(adminPasswordTextBox.Text);
+                string adminPwdSalt = File.ReadAllText("salt.txt");
+                File.Delete("salt.txt");
+
+                insertDataIntoSQLFiles(adminLogin, adminPassword, adminPwdSalt, adminFirstName, adminLastName, adminEmail, adminBirthday, workgroup, monthOfEmployment);
+                dBConnection.CreateAdmin();
+
+                progressBar.Value = 20;
+
+                var companyName = companyNameTextBox.Text;
+                var companyNIP = int.Parse(companyNIPTextBox.Text);
+                var companyREGON = long.Parse(companyREGONTextBox.Text);
+                var companyKRS = int.Parse(companyKRSTextBox.Text);
+                dBConnection.InsertNewCompany(companyName, companyNIP, companyREGON, companyKRS);
+
+
+
                 progressBar.Value = 75;
 
                 DBDataSerialization bwr = new DBDataSerialization();
                 bwr.SerializeIt(databaseHostTextBox.Text, databaseNameTextBox.Text, databaseLoginTextBox.Text, databasePasswordTextBox.Text, path);
-                
+
                 progressBar.Value = 100;
 
                 MessageBox.Show("Wszystko w porządku. Można używać programu.", "OK");
@@ -89,7 +131,7 @@ namespace SyZaFi
                 loginForm.Show();
                 loginForm.Activate();
                 this.Hide();
-                
+
             }
         }
 
@@ -122,6 +164,96 @@ namespace SyZaFi
         {
             folderBrowserDialog1.ShowDialog();
             path = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void adminEmailTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!new EmailAddressAttribute().IsValid(adminEmailTextBox.Text) || adminEmailTextBox.Text == null)
+            {
+                MessageBox.Show("Podany adres e-mail jest niepoprawny.", "Błędny adres e-mail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void companyNIPTextBox_Leave(object sender, EventArgs e)
+        {
+            if (companyNIPTextBox.Text != "")
+            {
+                try
+                {
+                    int.Parse(companyNIPTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Błędny format NIPu. Proszę wprowadzić poprawny NIP.", "Błędny NIP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyNIPTextBox.Clear();
+                }
+                catch (OverflowException)
+                {
+                    MessageBox.Show("Zbyt duży NIP. Proszę wprowadzić poprawny NIP.", "Zbyt długi NIP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyNIPTextBox.Clear();
+                }
+            }
+
+            if (companyNIPTextBox.Text.Length != 10 && companyNIPTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Niepoprawna długość NIPu. NIP ma 10 cyfr. Proszę wprowadzić poprawny NIP.", "Błędny NIP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                companyNIPTextBox.Clear();
+            }
+        }
+
+        private void companyREGONTextBox_Leave(object sender, EventArgs e)
+        {
+            if (companyREGONTextBox.Text != "")
+            {
+                try
+                {
+                    long.Parse(companyREGONTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Błędny format REGON. Proszę wprowadzić poprawny REGON.", "Błędny REGON", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyREGONTextBox.Clear();
+                }
+                catch (OverflowException)
+                {
+                    MessageBox.Show("Zbyt duży REGON. Proszę wprowadzić poprawny REGON.", "Zbyt długi REGON", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyREGONTextBox.Clear();
+                }
+            }
+
+            if (companyREGONTextBox.Text.Length > 0 && companyREGONTextBox.Text.Length != 9 && companyREGONTextBox.Text.Length != 14)
+            {
+
+                MessageBox.Show("Błędny REGON. Posiada on 9 albo 14 cyfr.", "Błędny REGON", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                companyREGONTextBox.Clear();
+            }
+        }
+
+        private void companyKRSTextBox_Leave(object sender, EventArgs e)
+        {
+            if (companyKRSTextBox.Text != "")
+            {
+                try
+                {
+                    int.Parse(companyKRSTextBox.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Błędny format nr KRS. Proszę wprowadzić poprawny nr KRS.", "Błędny nr KRS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyKRSTextBox.Clear();
+                }
+                catch (OverflowException)
+                {
+                    MessageBox.Show("Zbyt długi nr KRS. Proszę wprowadzić poprawny nr KRS.", "Zbyt długi nr KRS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    companyKRSTextBox.Clear();
+                }
+            }
+
+            if (companyKRSTextBox.Text.Length != 10 && companyKRSTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Zbyt długi nr KRS. Proszę wprowadzić poprawny nr KRS.", "Zbyt długi nr KRS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                companyKRSTextBox.Clear();
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SyZaFi
     {
         public const int SALT_SIZE = 24; // size in bytes
         public const int HASH_SIZE = 24; // size in bytes
-        public const int ITERATIONS = 100000; // number of pbkdf2 iterations
+        public const int ITERATIONS = 10000; // number of pbkdf2 iterations
 
         public string GenerateHash(string input)
         {

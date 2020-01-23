@@ -232,6 +232,7 @@
             this.adminEmailTextBox.Name = "adminEmailTextBox";
             this.adminEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.adminEmailTextBox.TabIndex = 4;
+            this.adminEmailTextBox.Leave += new System.EventHandler(this.adminEmailTextBox_Leave);
             // 
             // label9
             // 
@@ -285,28 +286,31 @@
             this.companyNameTextBox.Location = new System.Drawing.Point(422, 12);
             this.companyNameTextBox.Name = "companyNameTextBox";
             this.companyNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.companyNameTextBox.TabIndex = 27;
+            this.companyNameTextBox.TabIndex = 9;
             // 
             // companyKRSTextBox
             // 
             this.companyKRSTextBox.Location = new System.Drawing.Point(422, 90);
             this.companyKRSTextBox.Name = "companyKRSTextBox";
             this.companyKRSTextBox.Size = new System.Drawing.Size(100, 20);
-            this.companyKRSTextBox.TabIndex = 28;
+            this.companyKRSTextBox.TabIndex = 12;
+            this.companyKRSTextBox.Leave += new System.EventHandler(this.companyKRSTextBox_Leave);
             // 
             // companyREGONTextBox
             // 
             this.companyREGONTextBox.Location = new System.Drawing.Point(422, 64);
             this.companyREGONTextBox.Name = "companyREGONTextBox";
             this.companyREGONTextBox.Size = new System.Drawing.Size(100, 20);
-            this.companyREGONTextBox.TabIndex = 29;
+            this.companyREGONTextBox.TabIndex = 11;
+            this.companyREGONTextBox.Leave += new System.EventHandler(this.companyREGONTextBox_Leave);
             // 
             // companyNIPTextBox
             // 
             this.companyNIPTextBox.Location = new System.Drawing.Point(422, 38);
             this.companyNIPTextBox.Name = "companyNIPTextBox";
             this.companyNIPTextBox.Size = new System.Drawing.Size(100, 20);
-            this.companyNIPTextBox.TabIndex = 30;
+            this.companyNIPTextBox.TabIndex = 10;
+            this.companyNIPTextBox.Leave += new System.EventHandler(this.companyNIPTextBox_Leave);
             // 
             // label12
             // 
@@ -350,6 +354,7 @@
             this.fileServerLocalisationButton.Name = "fileServerLocalisationButton";
             this.fileServerLocalisationButton.Size = new System.Drawing.Size(173, 70);
             this.fileServerLocalisationButton.TabIndex = 35;
+            this.fileServerLocalisationButton.TabStop = false;
             this.fileServerLocalisationButton.Text = "Wybierz lokalizację serwera plików";
             this.fileServerLocalisationButton.UseVisualStyleBackColor = true;
             this.fileServerLocalisationButton.Click += new System.EventHandler(this.fileServerLocalisationButton_Click);
