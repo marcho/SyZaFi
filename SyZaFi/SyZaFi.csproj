@@ -180,12 +180,6 @@
       <DependentUpon>logisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="logWriting.cs" />
-    <Compile Include="migrateDatabaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="migrateDatabaseForm.Designer.cs">
-      <DependentUpon>migrateDatabaseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="modifyAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,9 +269,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="logisticsForm.resx">
       <DependentUpon>logisticsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="migrateDatabaseForm.resx">
-      <DependentUpon>migrateDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifyAccountForm.resx">
       <DependentUpon>modifyAccountForm.cs</DependentUpon>

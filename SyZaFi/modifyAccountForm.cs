@@ -76,6 +76,15 @@ namespace SyZaFi
             File.Delete("salt.txt");
             dBConnection.Update(firstName, lastName, birthday, login, employmentMonth, emailAddress, password, pwdhash, id);
             logWriting logWriting = new logWriting("Użytkownik zmodyfikował konto.");
+
+            existingAccountsListBox.Items.Clear();
+            List<string>[] list = dBConnection.CheckLogin();
+            var index = 0;
+            foreach (var item in list[3])
+            {
+                existingAccountsListBox.Items.Add(list[3].ElementAt(index).ToString() + " " + list[4].ElementAt(index).ToString());
+                index++;
+            }
         }
 
         private void returnButton_Click(object sender, EventArgs e)

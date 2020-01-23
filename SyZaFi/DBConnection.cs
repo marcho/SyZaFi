@@ -217,11 +217,23 @@ namespace SyZaFi
             }
         }
 
+        public void UpdateEmployee(string firstName, string lastName, string fathersName, string mothersName, string birthday, string placeOfResidence, string correspondenceAddress, string education, string historyOfEmployment, int pesel, string childrensNames, string childrensBirthdays, int id)
+        {
+            string query = "UPDATE employees SET firstName='" + firstName + "', lastName='" + lastName + "', fathersName='" + fathersName + "', mothersName='" + mothersName + "', birthday='" + birthday + "', placeOfResidence='" + placeOfResidence + "', correspondenceAddress='" + correspondenceAddress + "', education='" + education + "', historyOfEmployment='" + historyOfEmployment + "', pesel='" + pesel + "', childrensNames='" + childrensNames + "', childrensBirthdays='" + childrensBirthdays + "' WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
         public List<string>[] EmployeesList()
         {
             string query = "SELECT * FROM employees";
 
-            List<string>[] list = new List<string>[12];
+            List<string>[] list = new List<string>[13];
             list[0] = new List<string>(); //firstName
             list[1] = new List<string>(); //lastName
             list[2] = new List<string>(); //fathersName
@@ -234,6 +246,7 @@ namespace SyZaFi
             list[9] = new List<string>(); //pesel
             list[10] = new List<string>(); //childrensNames
             list[11] = new List<string>(); //childrensBirthdays
+            list[12] = new List<string>(); //id
 
             if (OpenConnection() == true)
             {
@@ -254,6 +267,7 @@ namespace SyZaFi
                     list[9].Add(dataReader["pesel"] + "");
                     list[10].Add(dataReader["childrensNames"] + "");
                     list[11].Add(dataReader["childrensBirthdays"] + "");
+                    list[12].Add(dataReader["id"] + "");
                 }
 
                 dataReader.Close();
@@ -270,7 +284,7 @@ namespace SyZaFi
         {
             string query = "SELECT * FROM deletedemployees";
 
-            List<string>[] list = new List<string>[12];
+            List<string>[] list = new List<string>[13];
             list[0] = new List<string>(); //firstName
             list[1] = new List<string>(); //lastName
             list[2] = new List<string>(); //fathersName
@@ -283,6 +297,7 @@ namespace SyZaFi
             list[9] = new List<string>(); //pesel
             list[10] = new List<string>(); //childrensNames
             list[11] = new List<string>(); //childrensBirthdays
+            list[12] = new List<string>(); //id
 
             if (OpenConnection() == true)
             {
@@ -303,6 +318,7 @@ namespace SyZaFi
                     list[9].Add(dataReader["pesel"] + "");
                     list[10].Add(dataReader["childrensNames"] + "");
                     list[11].Add(dataReader["childrensBirthdays"] + "");
+                    list[12].Add(dataReader["id"] + "");
                 }
 
                 dataReader.Close();
@@ -588,6 +604,43 @@ namespace SyZaFi
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void MoveEmployeeToRemovedEmployees(string firstName, string lastName, string fathersName, string mothersName, string birthday, string placeOfResidence, string correspondenceAddress, string education, string historyOfEmployment, int pesel, string childrensNames, string childrensBirthdays)
+        {
+            string query = "INSERT INTO deletedemployees (firstName, lastName, fathersName, mothersName, birthday, placeOfResidence, correspondenceAddress, education, historyOfEmployment, pesel, childrensNames, childrensBirthdays)" +
+                " VALUES('" + firstName + "', '" + lastName + "', '" + fathersName + "', '" + mothersName + "', '" + birthday + "', '" + placeOfResidence + "', '" + correspondenceAddress + "', '" + education + "', '" + historyOfEmployment + "', '" + pesel + "', '" + childrensNames + "', '" + childrensBirthdays + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
+        public void DeleteEmployee(int id)
+        {
+            string query = "DELETE FROM employees WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void DeleteFromDeletedEmployees(int id)
+        {
+            string query = "DELETE FROM deletedemployees WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }

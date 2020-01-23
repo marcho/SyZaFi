@@ -34,7 +34,6 @@
             this.modifyAccountButton = new System.Windows.Forms.Button();
             this.deleteAccountButton = new System.Windows.Forms.Button();
             this.checkLogsButton = new System.Windows.Forms.Button();
-            this.migrateDatabaseButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -98,21 +97,11 @@
             this.checkLogsButton.UseVisualStyleBackColor = true;
             this.checkLogsButton.Click += new System.EventHandler(this.checkLogsButton_Click);
             // 
-            // migrateDatabaseButton
-            // 
-            this.migrateDatabaseButton.Location = new System.Drawing.Point(12, 288);
-            this.migrateDatabaseButton.Name = "migrateDatabaseButton";
-            this.migrateDatabaseButton.Size = new System.Drawing.Size(127, 86);
-            this.migrateDatabaseButton.TabIndex = 6;
-            this.migrateDatabaseButton.Text = "Migruj bazę danych";
-            this.migrateDatabaseButton.UseVisualStyleBackColor = true;
-            this.migrateDatabaseButton.Click += new System.EventHandler(this.migrateDatabaseButton_Click);
-            // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(145, 288);
+            this.exitButton.Location = new System.Drawing.Point(12, 288);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(127, 86);
+            this.exitButton.Size = new System.Drawing.Size(260, 86);
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "Wyjdź";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -124,7 +113,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.migrateDatabaseButton);
             this.Controls.Add(this.checkLogsButton);
             this.Controls.Add(this.deleteAccountButton);
             this.Controls.Add(this.modifyAccountButton);
@@ -148,7 +136,6 @@
         private System.Windows.Forms.Button modifyAccountButton;
         private System.Windows.Forms.Button deleteAccountButton;
         private System.Windows.Forms.Button checkLogsButton;
-        private System.Windows.Forms.Button migrateDatabaseButton;
         private System.Windows.Forms.Button exitButton;
     }
 }
