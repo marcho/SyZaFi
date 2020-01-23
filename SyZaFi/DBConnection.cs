@@ -444,5 +444,79 @@ namespace SyZaFi
                 this.CloseConnection();
             }
         }
+
+        public List<string>[] CheckOrders()
+        {
+            string query = "SELECT * FROM orders";
+
+            List<string>[] list = new List<string>[5];
+            list[0] = new List<string>(); //id
+            list[1] = new List<string>(); //client
+            list[2] = new List<string>(); //itemname
+            list[3] = new List<string>(); //amount
+            list[4] = new List<string>(); //date
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["id"] + "");
+                    list[1].Add(dataReader["client"] + "");
+                    list[2].Add(dataReader["itemname"] + "");
+                    list[3].Add(dataReader["amount"] + "");
+                    list[4].Add(dataReader["date"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public void DeleteOrder(int id)
+        {
+            string query = "DELETE FROM orders WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void InsertNewOrder(string client, string itemname, int amount, string date)
+        {
+            string query = "INSERT INTO orders (client, itemname, amount, date)" +
+                " VALUES('" + client + "', '" + itemname + "', '" + amount + "', '" + date + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
+        public void UpdateOrders(int id, string client, string itemname, int amount, string date)
+        {
+            string query = "UPDATE orders SET client='" + client + "', itemname='" + itemname + "', amount='" + amount + "', date='" + date + "' WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
     }
 }
