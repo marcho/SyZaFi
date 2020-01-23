@@ -55,6 +55,12 @@ namespace SyZaFi
 
             progressBar.Value = 20;
 
+            var companyName = companyNameTextBox.Text;
+            var companyNIP = int.Parse(companyNIPTextBox.Text);
+            var companyREGON = int.Parse(companyREGONTextBox.Text);
+            var companyKRS = int.Parse(companyKRSTextBox.Text);
+            dBConnection.InsertNewCompany(companyName, companyNIP, companyREGON, companyKRS);
+
             
             if (!dBConnection.ConnectionTest())
             {

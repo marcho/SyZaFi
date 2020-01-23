@@ -51,5 +51,11 @@ namespace SyZaFi
         {
             Application.Exit();
         }
+
+        private void modifyCompanyDetailsButton_Click(object sender, EventArgs e)
+        {
+            editCompanyDetailsForm editCompanyDetailsForm = new editCompanyDetailsForm();
+            editCompanyDetailsForm.Show();
+        }
     }
 }

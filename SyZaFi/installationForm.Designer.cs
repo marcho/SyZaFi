@@ -53,6 +53,14 @@
             this.adminBirthdayDatePicker = new System.Windows.Forms.DateTimePicker();
             this.employmentMonthDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.companyNameTextBox = new System.Windows.Forms.TextBox();
+            this.companyKRSTextBox = new System.Windows.Forms.TextBox();
+            this.companyREGONTextBox = new System.Windows.Forms.TextBox();
+            this.companyNIPTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // adminLoginTextBox
@@ -157,7 +165,7 @@
             // 
             this.exitButton.Location = new System.Drawing.Point(12, 369);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(260, 30);
+            this.exitButton.Size = new System.Drawing.Size(510, 30);
             this.exitButton.TabIndex = 14;
             this.exitButton.TabStop = false;
             this.exitButton.Text = "Wyjdź";
@@ -168,7 +176,7 @@
             // 
             this.installButton.Location = new System.Drawing.Point(12, 333);
             this.installButton.Name = "installButton";
-            this.installButton.Size = new System.Drawing.Size(260, 30);
+            this.installButton.Size = new System.Drawing.Size(510, 30);
             this.installButton.TabIndex = 15;
             this.installButton.TabStop = false;
             this.installButton.Text = "Zainstaluj";
@@ -179,7 +187,7 @@
             // 
             this.progressBar.Location = new System.Drawing.Point(12, 304);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(260, 23);
+            this.progressBar.Size = new System.Drawing.Size(510, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 16;
             this.progressBar.Visible = false;
@@ -270,11 +278,83 @@
             this.label11.TabIndex = 25;
             this.label11.Text = "Data zatrudnienia administratora";
             // 
+            // companyNameTextBox
+            // 
+            this.companyNameTextBox.Location = new System.Drawing.Point(422, 12);
+            this.companyNameTextBox.Name = "companyNameTextBox";
+            this.companyNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.companyNameTextBox.TabIndex = 27;
+            // 
+            // companyKRSTextBox
+            // 
+            this.companyKRSTextBox.Location = new System.Drawing.Point(422, 90);
+            this.companyKRSTextBox.Name = "companyKRSTextBox";
+            this.companyKRSTextBox.Size = new System.Drawing.Size(100, 20);
+            this.companyKRSTextBox.TabIndex = 28;
+            // 
+            // companyREGONTextBox
+            // 
+            this.companyREGONTextBox.Location = new System.Drawing.Point(422, 64);
+            this.companyREGONTextBox.Name = "companyREGONTextBox";
+            this.companyREGONTextBox.Size = new System.Drawing.Size(100, 20);
+            this.companyREGONTextBox.TabIndex = 29;
+            // 
+            // companyNIPTextBox
+            // 
+            this.companyNIPTextBox.Location = new System.Drawing.Point(422, 38);
+            this.companyNIPTextBox.Name = "companyNIPTextBox";
+            this.companyNIPTextBox.Size = new System.Drawing.Size(100, 20);
+            this.companyNIPTextBox.TabIndex = 30;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(346, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Nazwa firmy";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(346, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "KRS firmy";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(346, 41);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "NIP firmy";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(346, 67);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(70, 13);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "REGON firmy";
+            // 
             // installationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 411);
+            this.ClientSize = new System.Drawing.Size(534, 411);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.companyNIPTextBox);
+            this.Controls.Add(this.companyREGONTextBox);
+            this.Controls.Add(this.companyKRSTextBox);
+            this.Controls.Add(this.companyNameTextBox);
             this.Controls.Add(this.employmentMonthDatePicker);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.adminBirthdayDatePicker);
@@ -336,5 +416,13 @@
         private System.Windows.Forms.DateTimePicker adminBirthdayDatePicker;
         private System.Windows.Forms.DateTimePicker employmentMonthDatePicker;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox companyNameTextBox;
+        private System.Windows.Forms.TextBox companyKRSTextBox;
+        private System.Windows.Forms.TextBox companyREGONTextBox;
+        private System.Windows.Forms.TextBox companyNIPTextBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

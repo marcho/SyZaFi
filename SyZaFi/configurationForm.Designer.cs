@@ -33,6 +33,8 @@
             this.deleteAccountButton = new System.Windows.Forms.Button();
             this.checkLogsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.modifyCompanyDetailsButton = new System.Windows.Forms.Button();
+            this.modifyFilesServerLocalisationButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // createNewAccountButton
@@ -85,11 +87,32 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // modifyCompanyDetailsButton
+            // 
+            this.modifyCompanyDetailsButton.Location = new System.Drawing.Point(12, 196);
+            this.modifyCompanyDetailsButton.Name = "modifyCompanyDetailsButton";
+            this.modifyCompanyDetailsButton.Size = new System.Drawing.Size(127, 86);
+            this.modifyCompanyDetailsButton.TabIndex = 8;
+            this.modifyCompanyDetailsButton.Text = "Zmodyfikuj informacje o firmie";
+            this.modifyCompanyDetailsButton.UseVisualStyleBackColor = true;
+            this.modifyCompanyDetailsButton.Click += new System.EventHandler(this.modifyCompanyDetailsButton_Click);
+            // 
+            // modifyFilesServerLocalisationButton
+            // 
+            this.modifyFilesServerLocalisationButton.Location = new System.Drawing.Point(145, 196);
+            this.modifyFilesServerLocalisationButton.Name = "modifyFilesServerLocalisationButton";
+            this.modifyFilesServerLocalisationButton.Size = new System.Drawing.Size(127, 86);
+            this.modifyFilesServerLocalisationButton.TabIndex = 9;
+            this.modifyFilesServerLocalisationButton.Text = "Zmień lokalizację serwera plików";
+            this.modifyFilesServerLocalisationButton.UseVisualStyleBackColor = true;
+            // 
             // configurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
+            this.Controls.Add(this.modifyFilesServerLocalisationButton);
+            this.Controls.Add(this.modifyCompanyDetailsButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.checkLogsButton);
             this.Controls.Add(this.deleteAccountButton);
@@ -110,5 +133,7 @@
         private System.Windows.Forms.Button deleteAccountButton;
         private System.Windows.Forms.Button checkLogsButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button modifyCompanyDetailsButton;
+        private System.Windows.Forms.Button modifyFilesServerLocalisationButton;
     }
 }

@@ -645,5 +645,67 @@ namespace SyZaFi
                 this.CloseConnection();
             }
         }
+
+        public List<string>[] CheckCompany()
+        {
+            string query = "SELECT * FROM companydetails";
+
+            List<string>[] list = new List<string>[5];
+            list[0] = new List<string>(); //id
+            list[1] = new List<string>(); //companyName
+            list[2] = new List<string>(); //companyNIP
+            list[3] = new List<string>(); //companyREGON
+            list[4] = new List<string>(); //companyKRS
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["id"] + "");
+                    list[1].Add(dataReader["companyName"] + "");
+                    list[2].Add(dataReader["companyNIP"] + "");
+                    list[3].Add(dataReader["companyREGON"] + "");
+                    list[4].Add(dataReader["companyKRS"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public void InsertNewCompany(string companyName, int companyNIP, int companyREGON, int companyKRS)
+        {
+            string query = "INSERT INTO companydetails (companyName, companyNIP, companyREGON, companyKRS)" +
+                " VALUES('" + companyName + "', '" + companyNIP + "', '" + companyREGON + "', '" + companyKRS + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
+        public void UpdateCompanyDetails(int id, string companyName, int companyNIP, int companyREGON, int companyKRS)
+        {
+            string query = "UPDATE companydetails SET companyName='" + companyName + "', companyNIP='" + companyNIP + "', companyREGON='" + companyREGON + "', companyKRS='" + companyKRS + "' WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
     }
 }

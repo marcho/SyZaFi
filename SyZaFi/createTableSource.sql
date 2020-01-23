@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Sty 2020, 15:39
+-- Czas generowania: 23 Sty 2020, 18:06
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.3.8
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `syzafi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `companydetails`
+--
+
+CREATE TABLE `companydetails` (
+  `id` int(11) NOT NULL,
+  `companyName` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `companyNIP` int(11) NOT NULL,
+  `companyREGON` int(11) NOT NULL,
+  `companyKRS` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -138,6 +152,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indeksy dla tabeli `companydetails`
+--
+ALTER TABLE `companydetails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `deletedemployees`
 --
 ALTER TABLE `deletedemployees`
@@ -182,6 +202,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `companydetails`
+--
+ALTER TABLE `companydetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `deletedemployees`
