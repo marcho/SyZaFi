@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace SyZaFi
 {
@@ -15,16 +16,6 @@ namespace SyZaFi
         public configurationForm()
         {
             InitializeComponent();
-        }
-
-        private void checkFilesButton_Click(object sender, EventArgs e)
-        {
-            /* checkFiles(); */
-        }
-
-        private void checkDatabaseButton_Click(object sender, EventArgs e)
-        {
-            /* checkDB(); */
         }
 
         private void createNewAccountButton_Click(object sender, EventArgs e)
@@ -48,13 +39,7 @@ namespace SyZaFi
 
         private void checkLogsButton_Click(object sender, EventArgs e)
         {
-            /* code for opening the txt file with logs */
-        }
-
-        private void migrateDatabaseButton_Click(object sender, EventArgs e)
-        {
-            migrateDatabaseForm migrateDatabaseForm = new migrateDatabaseForm();
-            migrateDatabaseForm.ShowDialog();
+            Process.Start(@"log\log.log");
         }
 
         private void exitButton_Click(object sender, EventArgs e)
