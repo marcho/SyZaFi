@@ -61,6 +61,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.fileServerLocalisationButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // adminLoginTextBox
@@ -342,11 +344,22 @@
             this.label15.TabIndex = 34;
             this.label15.Text = "REGON firmy";
             // 
+            // fileServerLocalisationButton
+            // 
+            this.fileServerLocalisationButton.Location = new System.Drawing.Point(349, 119);
+            this.fileServerLocalisationButton.Name = "fileServerLocalisationButton";
+            this.fileServerLocalisationButton.Size = new System.Drawing.Size(173, 70);
+            this.fileServerLocalisationButton.TabIndex = 35;
+            this.fileServerLocalisationButton.Text = "Wybierz lokalizację serwera plików";
+            this.fileServerLocalisationButton.UseVisualStyleBackColor = true;
+            this.fileServerLocalisationButton.Click += new System.EventHandler(this.fileServerLocalisationButton_Click);
+            // 
             // installationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 411);
+            this.Controls.Add(this.fileServerLocalisationButton);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -424,5 +437,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button fileServerLocalisationButton;
     }
 }

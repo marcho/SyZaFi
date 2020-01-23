@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace SyZaFi
 {
@@ -56,6 +59,22 @@ namespace SyZaFi
         {
             editCompanyDetailsForm editCompanyDetailsForm = new editCompanyDetailsForm();
             editCompanyDetailsForm.Show();
+        }
+
+        private void modifyFilesServerLocalisationButton_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            var path = folderBrowserDialog1.SelectedPath;
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            var dbhost = dbds.dbhost;
+            var dbname = dbds.dbname;
+            var dblogin = dbds.dblogin;
+            var dbpwd = dbds.dbpassword;
+            stream.Close();
+            DBDataSerialization bwr = new DBDataSerialization();
+            bwr.SerializeIt(dbhost, dbname, dblogin, dbpwd, path);
         }
     }
 }

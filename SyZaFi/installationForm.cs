@@ -14,6 +14,7 @@ namespace SyZaFi
 {
     public partial class installationForm : Form
     {
+        string path;
         public installationForm()
         {
             InitializeComponent();
@@ -79,7 +80,7 @@ namespace SyZaFi
                 progressBar.Value = 75;
 
                 DBDataSerialization bwr = new DBDataSerialization();
-                bwr.SerializeIt(databaseHostTextBox.Text, databaseNameTextBox.Text, databaseLoginTextBox.Text, databasePasswordTextBox.Text);
+                bwr.SerializeIt(databaseHostTextBox.Text, databaseNameTextBox.Text, databaseLoginTextBox.Text, databasePasswordTextBox.Text, path);
                 
                 progressBar.Value = 100;
 
@@ -115,6 +116,12 @@ namespace SyZaFi
             text = text.Replace("adminEmploymentMonth", monthOfEmployment);
             text = text.Replace("adminEmailAddress", adminEmail);
             File.WriteAllText("createAdminAccount.sql", text);
+        }
+
+        private void fileServerLocalisationButton_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            path = folderBrowserDialog1.SelectedPath;
         }
     }
 }

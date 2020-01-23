@@ -16,14 +16,16 @@ namespace SyZaFi
         public string dbname;
         public string dblogin;
         public string dbpassword;
+        public string path;
 
-        public void SerializeIt(string host, string name, string login, string password)
+        public void SerializeIt(string host, string name, string login, string password, string path)
         {
             DBDataSerialization dbds = new DBDataSerialization();
             dbds.dbhost = host;
             dbds.dbname = name;
             dbds.dblogin = login;
             dbds.dbpassword = password;
+            dbds.path = path;
 
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("conf.bin", FileMode.Create, FileAccess.Write);

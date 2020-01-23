@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SyZaFi
 {
@@ -16,7 +18,10 @@ namespace SyZaFi
         public invoicesForm()
         {
             InitializeComponent();
-            string[] filePaths = Directory.GetFiles(@"C:\!Files\Invoices\");
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            string[] filePaths = Directory.GetFiles(dbds.path + "\\");
             foreach (string asd in filePaths)
             {
                 invoicesListBox.Items.Add(asd);
@@ -25,15 +30,18 @@ namespace SyZaFi
 
         private void addInvoiceButton_Click(object sender, EventArgs e)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 openFileDialog.Title = "Wybierz plik PDF  z fakturą";
                 openFileDialog.ShowDialog();
-                File.Copy(openFileDialog.FileName, @"c:\!Files\Invoices\" + openFileDialog.SafeFileName);
+                File.Copy(openFileDialog.FileName, dbds.path + "\\" + openFileDialog.SafeFileName);
                 invoicesListBox.Items.Clear();
-                string[] filePaths = Directory.GetFiles(@"C:\!Files\Invoices\");
+                string[] filePaths = Directory.GetFiles(dbds.path + "\\");
                 foreach (string asd in filePaths)
                 {
                     invoicesListBox.Items.Add(asd);
@@ -48,9 +56,13 @@ namespace SyZaFi
 
         private void removeInvoiceButton_Click(object sender, EventArgs e)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+
             File.Delete(invoicesListBox.SelectedItem.ToString());
             invoicesListBox.Items.Clear();
-            string[] filePaths = Directory.GetFiles(@"C:\!Files\Invoices\");
+            string[] filePaths = Directory.GetFiles(dbds.path + "\\");
             foreach (string asd in filePaths)
             {
                 invoicesListBox.Items.Add(asd);

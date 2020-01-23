@@ -32,6 +32,7 @@ namespace SyZaFi
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
             DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            stream.Close();
             DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
             loginForLogs = loginTextBox.Text;
             string login = loginTextBox.Text;

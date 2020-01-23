@@ -35,6 +35,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.modifyCompanyDetailsButton = new System.Windows.Forms.Button();
             this.modifyFilesServerLocalisationButton = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // createNewAccountButton
@@ -105,6 +106,7 @@
             this.modifyFilesServerLocalisationButton.TabIndex = 9;
             this.modifyFilesServerLocalisationButton.Text = "Zmień lokalizację serwera plików";
             this.modifyFilesServerLocalisationButton.UseVisualStyleBackColor = true;
+            this.modifyFilesServerLocalisationButton.Click += new System.EventHandler(this.modifyFilesServerLocalisationButton_Click);
             // 
             // configurationForm
             // 
@@ -135,5 +137,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button modifyCompanyDetailsButton;
         private System.Windows.Forms.Button modifyFilesServerLocalisationButton;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
