@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Sty 2020, 14:43
+-- Czas generowania: 23 Sty 2020, 15:39
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.3.8
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `syzafi`
 --
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +66,54 @@ CREATE TABLE `employees` (
   `childrensBirthdays` varchar(500) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Struktura tabeli dla tabeli `financialoperations`
+--
+
+CREATE TABLE `financialoperations` (
+  `id` int(11) NOT NULL,
+  `receiver` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `amount` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `category` varchar(300) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Struktura tabeli dla tabeli `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `id` int(11) NOT NULL,
+  `inventorycode` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `name` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `client` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `itemname` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `amount` int(11) NOT NULL,
+  `date` varchar(300) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Struktura tabeli dla tabeli `productionplan`
+--
+
+CREATE TABLE `productionplan` (
+  `id` int(11) NOT NULL,
+  `item` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `amount` int(11) NOT NULL,
+  `position` varchar(300) COLLATE utf8_polish_ci NOT NULL,
+  `date` varchar(300) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +150,30 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `financialoperations`
+--
+ALTER TABLE `financialoperations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `productionplan`
+--
+ALTER TABLE `productionplan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
@@ -114,19 +187,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `deletedemployees`
 --
 ALTER TABLE `deletedemployees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT dla tabeli `financialoperations`
+--
+ALTER TABLE `financialoperations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT dla tabeli `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT dla tabeli `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT dla tabeli `productionplan`
+--
+ALTER TABLE `productionplan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
