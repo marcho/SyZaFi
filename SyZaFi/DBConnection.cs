@@ -518,5 +518,79 @@ namespace SyZaFi
                 this.CloseConnection();
             }
         }
+
+        public List<string>[] CheckProductionPlan()
+        {
+            string query = "SELECT * FROM productionplan";
+
+            List<string>[] list = new List<string>[5];
+            list[0] = new List<string>(); //id
+            list[1] = new List<string>(); //item
+            list[2] = new List<string>(); //amount
+            list[3] = new List<string>(); //position
+            list[4] = new List<string>(); //date
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["id"] + "");
+                    list[1].Add(dataReader["item"] + "");
+                    list[2].Add(dataReader["amount"] + "");
+                    list[3].Add(dataReader["position"] + "");
+                    list[4].Add(dataReader["date"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public void DeleteProduction(int id)
+        {
+            string query = "DELETE FROM productionplan WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void InsertNewProduction(string item, int amount, string position, string date)
+        {
+            string query = "INSERT INTO productionplan (item, amount, position, date)" +
+                " VALUES('" + item + "', '" + amount + "', '" + position + "', '" + date + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
+        public void UpdateProductionPlan(int id, string item, int amount, string position, string date)
+        {
+            string query = "UPDATE productionplan SET item='" + item + "', amount='" + amount + "', position='" + position + "', date='" + date + "' WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
     }
 }
