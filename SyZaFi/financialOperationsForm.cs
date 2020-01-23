@@ -76,6 +76,7 @@ namespace SyZaFi
                     financialOperationsListBox.Items.Add(list[0].ElementAt(index).ToString());
                     index++;
                 }
+                logWriting logWriting = new logWriting("Użytkownik usunął operację finansową.");
 
             }
         }

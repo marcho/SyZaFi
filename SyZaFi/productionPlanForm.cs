@@ -69,6 +69,7 @@ namespace SyZaFi
                 planListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString() + " | " + list[4].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik dodał nową produkcję.");
         }
 
         private void modifyProductionButton_Click(object sender, EventArgs e)
@@ -92,6 +93,7 @@ namespace SyZaFi
                 planListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString() + " | " + list[4].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik zmodyfikował istniejącą produkcję.");
         }
 
         private void deleteProductionButton_Click(object sender, EventArgs e)
@@ -110,6 +112,7 @@ namespace SyZaFi
                 planListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString() + " | " + list[4].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik usunął produkcję.");
         }
 
         private void returnButton_Click(object sender, EventArgs e)

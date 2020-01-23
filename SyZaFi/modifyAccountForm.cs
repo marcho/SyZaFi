@@ -75,6 +75,7 @@ namespace SyZaFi
             string pwdhash = File.ReadAllText("salt.txt");
             File.Delete("salt.txt");
             dBConnection.Update(firstName, lastName, birthday, login, employmentMonth, emailAddress, password, pwdhash, id);
+            logWriting logWriting = new logWriting("Użytkownik zmodyfikował konto.");
         }
 
         private void returnButton_Click(object sender, EventArgs e)

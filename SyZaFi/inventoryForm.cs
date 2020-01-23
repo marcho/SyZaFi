@@ -67,6 +67,7 @@ namespace SyZaFi
                 inventoryListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik dodał nowy przedmiot do magazynu.");
         }
 
         private void modifyExistingItemButton_Click(object sender, EventArgs e)
@@ -89,6 +90,7 @@ namespace SyZaFi
                 inventoryListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik zmodyfikował przedmiot w magazynie.");
         }
 
         private void removeItemButton_Click(object sender, EventArgs e)
@@ -107,6 +109,7 @@ namespace SyZaFi
                 inventoryListBox.Items.Add(list[1].ElementAt(index).ToString() + " | " + list[2].ElementAt(index).ToString() + " | " + list[3].ElementAt(index).ToString());
                 index++;
             }
+            logWriting logWriting = new logWriting("Użytkownik usunął przedmiot z magazynu.");
         }
 
         private void returnButton_Click(object sender, EventArgs e)

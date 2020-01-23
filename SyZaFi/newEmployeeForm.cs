@@ -50,6 +50,7 @@ namespace SyZaFi
             var childrensBirthdays = childrensBirthdaysTextBox.Text;
 
             dBConnection.InsertNewEmployee(firstName, lastName, fathersName, mothersName, birthday, placeOfResidence, correspondenceAddress, education, historyOfEmployment, pesel, childrensNames, childrensBirthdays);
+            logWriting logWriting = new logWriting("Użytkownik dodał nowego pracownika.");
         }
 
         private void returnButton_Click(object sender, EventArgs e)

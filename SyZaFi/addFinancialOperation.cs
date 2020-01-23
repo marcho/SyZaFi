@@ -41,6 +41,7 @@ namespace SyZaFi
                 var amount = amountTextBox.Text;
                 var category = categoryTextBox.Text;
                 dBConnection.InsertNewFinancialOperation(receiver, amount, category);
+                logWriting logWriting = new logWriting("Użytkownik dodał nową operację finansową.");
                 this.Close();
             }
         }

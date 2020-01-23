@@ -38,6 +38,7 @@ namespace SyZaFi
                 {
                     invoicesListBox.Items.Add(asd);
                 }
+                logWriting logWriting = new logWriting("Użytkownik dodał fakturę.");
             }
             catch (IOException ioex)
             {
@@ -54,6 +55,7 @@ namespace SyZaFi
             {
                 invoicesListBox.Items.Add(asd);
             }
+            logWriting logWriting = new logWriting("Użytkownik usunął fakturę.");
         }
 
         private void returnButton_Click(object sender, EventArgs e)
@@ -69,6 +71,7 @@ namespace SyZaFi
         private void openInvoiceButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(invoicesListBox.SelectedItem.ToString());
+            logWriting logWriting = new logWriting("Użytkownik otworzył fakturę.");
         }
     }
 }
