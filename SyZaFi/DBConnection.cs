@@ -372,5 +372,77 @@ namespace SyZaFi
                 CloseConnection();
             }
         }
+
+        public List<string>[] CheckInventory()
+        {
+            string query = "SELECT * FROM inventory";
+
+            List<string>[] list = new List<string>[4];
+            list[0] = new List<string>(); //id
+            list[1] = new List<string>(); //inventorycode - also known as index
+            list[2] = new List<string>(); //name
+            list[3] = new List<string>(); //amount
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["id"] + "");
+                    list[1].Add(dataReader["inventorycode"] + "");
+                    list[2].Add(dataReader["name"] + "");
+                    list[3].Add(dataReader["amount"] + "");
+                }
+
+                dataReader.Close();
+                CloseConnection();
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public void DeleteInventoryPosition(int id)
+        {
+            string query = "DELETE FROM inventory WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void InsertNewInventoryPosition(string inventorycode, string name, int amount)
+        {
+            string query = "INSERT INTO inventory (inventorycode, name, amount)" +
+                " VALUES('" + inventorycode + "', '" + name + "', '" + amount + "')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+
+        public void UpdateInventory(int id, string inventorycode, string name, int amount)
+        {
+            string query = "UPDATE inventory SET inventorycode='" + inventorycode + "', name='" + name + "', amount='" + amount + "' WHERE id='" + id + "'";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
     }
 }
