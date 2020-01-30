@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Struktura tabeli dla tabeli `companydetails`
 --
-
+DROP TABLE IF EXISTS companydetails;
 CREATE TABLE `companydetails` (
   `id` int(11) NOT NULL,
   `companyName` varchar(300) COLLATE utf8_polish_ci NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `companydetails` (
 --
 -- Struktura tabeli dla tabeli `deletedemployees`
 --
-
+DROP TABLE IF EXISTS deletedemployees;
 CREATE TABLE `deletedemployees` (
   `id` int(11) NOT NULL,
   `firstName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `deletedemployees` (
 --
 -- Struktura tabeli dla tabeli `employees`
 --
-
+DROP TABLE IF EXISTS employees;
 CREATE TABLE `employees` (
   `id` int(11) NOT NULL,
   `firstName` varchar(50) COLLATE utf8_polish_ci NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `employees` (
 --
 -- Struktura tabeli dla tabeli `financialoperations`
 --
-
+DROP TABLE IF EXISTS financialoperations;
 CREATE TABLE `financialoperations` (
   `id` int(11) NOT NULL,
   `receiver` varchar(300) COLLATE utf8_polish_ci NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE `financialoperations` (
 --
 -- Struktura tabeli dla tabeli `inventory`
 --
-
+DROP TABLE IF EXISTS inventory;
 CREATE TABLE `inventory` (
   `id` int(11) NOT NULL,
   `inventorycode` varchar(300) COLLATE utf8_polish_ci NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `inventory` (
 --
 -- Struktura tabeli dla tabeli `orders`
 --
-
+DROP TABLE IF EXISTS orders;
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `client` varchar(300) COLLATE utf8_polish_ci NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `orders` (
 --
 -- Struktura tabeli dla tabeli `productionplan`
 --
-
+DROP TABLE IF EXISTS productionplan;
 CREATE TABLE `productionplan` (
   `id` int(11) NOT NULL,
   `item` varchar(300) COLLATE utf8_polish_ci NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE `productionplan` (
 --
 -- Struktura tabeli dla tabeli `users`
 --
-
+DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `firstName` varchar(30) COLLATE utf8_polish_ci NOT NULL,

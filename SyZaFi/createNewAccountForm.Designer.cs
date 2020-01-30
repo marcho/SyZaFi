@@ -112,6 +112,7 @@
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(260, 23);
             this.exitButton.TabIndex = 6;
+            this.exitButton.TabStop = false;
             this.exitButton.Text = "Wyjdź";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -122,6 +123,7 @@
             this.returnButton.Name = "returnButton";
             this.returnButton.Size = new System.Drawing.Size(260, 23);
             this.returnButton.TabIndex = 7;
+            this.returnButton.TabStop = false;
             this.returnButton.Text = "Wstecz";
             this.returnButton.UseVisualStyleBackColor = true;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
@@ -132,6 +134,7 @@
             this.registerNewAccountButton.Name = "registerNewAccountButton";
             this.registerNewAccountButton.Size = new System.Drawing.Size(260, 23);
             this.registerNewAccountButton.TabIndex = 8;
+            this.registerNewAccountButton.TabStop = false;
             this.registerNewAccountButton.Text = "Załóż nowe konto";
             this.registerNewAccountButton.UseVisualStyleBackColor = true;
             this.registerNewAccountButton.Click += new System.EventHandler(this.registerNewAccountButton_Click);
@@ -195,7 +198,7 @@
             this.emailAddressTextBox.Location = new System.Drawing.Point(108, 269);
             this.emailAddressTextBox.Name = "emailAddressTextBox";
             this.emailAddressTextBox.Size = new System.Drawing.Size(164, 20);
-            this.emailAddressTextBox.TabIndex = 15;
+            this.emailAddressTextBox.TabIndex = 5;
             // 
             // label7
             // 
