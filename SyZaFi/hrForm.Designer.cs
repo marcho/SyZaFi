@@ -105,6 +105,7 @@
             this.generateTerminationOfEmployment.TabIndex = 6;
             this.generateTerminationOfEmployment.Text = "Generuj wypowiedzenie";
             this.generateTerminationOfEmployment.UseVisualStyleBackColor = true;
+            this.generateTerminationOfEmployment.Click += new System.EventHandler(this.generateTerminationOfEmployment_Click);
             // 
             // hrForm
             // 

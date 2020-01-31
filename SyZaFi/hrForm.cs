@@ -86,5 +86,10 @@ namespace SyZaFi
 
             logWriting logWriting = new logWriting("Użytkownik wydrukował pakiet nowego pracownika.");
         }
+
+        private void generateTerminationOfEmployment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

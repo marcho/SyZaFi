@@ -45,7 +45,7 @@ namespace SyZaFi
             var education = educationTextBox.Text;
             var correspondenceAddress = correspondenceAddressTextBox.Text;
             var historyOfEmployment = historyOfEmploymentTextBox.Text;
-            var pesel = int.Parse(peselTextBox.Text);
+            var pesel = long.Parse(peselTextBox.Text);
             var childrensNames = childrensNamesTextBox.Text;
             var childrensBirthdays = childrensBirthdaysTextBox.Text;
 
