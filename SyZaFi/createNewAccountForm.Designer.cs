@@ -199,6 +199,7 @@
             this.emailAddressTextBox.Name = "emailAddressTextBox";
             this.emailAddressTextBox.Size = new System.Drawing.Size(164, 20);
             this.emailAddressTextBox.TabIndex = 5;
+            this.emailAddressTextBox.Leave += new System.EventHandler(this.emailAddressTextBox_Leave);
             // 
             // label7
             // 

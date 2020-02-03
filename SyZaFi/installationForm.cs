@@ -180,7 +180,7 @@ namespace SyZaFi
             {
                 try
                 {
-                    int.Parse(companyNIPTextBox.Text);
+                    long.Parse(companyNIPTextBox.Text);
                 }
                 catch (FormatException)
                 {
@@ -235,7 +235,7 @@ namespace SyZaFi
             {
                 try
                 {
-                    int.Parse(companyKRSTextBox.Text);
+                    long.Parse(companyKRSTextBox.Text);
                 }
                 catch (FormatException)
                 {
