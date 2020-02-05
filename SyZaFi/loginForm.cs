@@ -37,12 +37,18 @@ namespace SyZaFi
             loginForLogs = loginTextBox.Text;
             string login = loginTextBox.Text;
             PwdEncryption pwde = new PwdEncryption();
-            if (dBConnection.ConnectionTest())
+            if (string.IsNullOrWhiteSpace(loginTextBox.Text))
             {
-                string pwdhash = dBConnection.GetPwdHash(login);
-                byte[] salt = Convert.FromBase64String(pwdhash);
-                string adminPassword = pwde.GenerateHashOnLogin(passwordTextBox.Text, salt);
-            
+                MessageBox.Show("Login nie może być pusty!", "Pusty login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                loginTextBox.Clear();
+            }
+            else if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
+            {
+                MessageBox.Show("Hasło nie może być puste!", "Puste hasło", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                loginTextBox.Clear();
+            }
+            else if (dBConnection.ConnectionTest())
+            {
                 List<string>[] list = dBConnection.CheckLogin();
                 var indexOfLogin = 0;
                 bool loginSuccessfull = false;
@@ -57,6 +63,9 @@ namespace SyZaFi
                 }
                 if (loginSuccessfull)
                 {
+                    string pwdhash = dBConnection.GetPwdHash(login);
+                    byte[] salt = Convert.FromBase64String(pwdhash);
+                    string adminPassword = pwde.GenerateHashOnLogin(passwordTextBox.Text, salt);
                     logWriting logWriting = new logWriting("Użytkownik się zalogował.");
                     var passwordFromDb = list[1].ElementAt(indexOfLogin);
                     var workgroupFromDb = list[2].ElementAt(indexOfLogin);
@@ -108,6 +117,14 @@ namespace SyZaFi
                                 }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Wprowadź poprawne hasło!", "Złe hasło", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadź poprawny login!", "Niepoprawny login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

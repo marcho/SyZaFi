@@ -25,7 +25,7 @@ namespace SyZaFi
         string correspondenceAddress;
         string education;
         string historyOfEmployment;
-        int pesel;
+        long pesel;
         string childrensNames;
         string childrensBirthdays;
 
@@ -64,7 +64,7 @@ namespace SyZaFi
             correspondenceAddress = list[6].ElementAt(employeesListBox.SelectedIndex);
             education = list[7].ElementAt(employeesListBox.SelectedIndex);
             historyOfEmployment = list[8].ElementAt(employeesListBox.SelectedIndex);
-            pesel = int.Parse(list[9].ElementAt(employeesListBox.SelectedIndex));
+            pesel = long.Parse(list[9].ElementAt(employeesListBox.SelectedIndex));
             childrensNames = list[10].ElementAt(employeesListBox.SelectedIndex);
             childrensBirthdays = list[11].ElementAt(employeesListBox.SelectedIndex);
         }

@@ -83,8 +83,46 @@ namespace SyZaFi
 
         private void addOperationButton_Click(object sender, EventArgs e)
         {
-            addFinancialOperation addFinancialOperation = new addFinancialOperation();
-            addFinancialOperation.Show();
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("conf.bin", FileMode.Open, FileAccess.Read);
+            DBDataSerialization dbds = (DBDataSerialization)formatter.Deserialize(stream);
+            DBConnection dBConnection = new DBConnection(dbds.dbhost, dbds.dbname, dbds.dblogin, dbds.dbpassword);
+
+            if (string.IsNullOrWhiteSpace(receiverTextBox.Text))
+            {
+                MessageBox.Show("Pole odbiorca nie może być puste. Proszę o uzupełnienie.", "Puste pole odbiorca", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(amountTextBox.Text))
+            {
+                MessageBox.Show("Pole wartość nie może być puste. Proszę o uzupełnienie.", "Puste pole wartość", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(categoryTextBox.Text))
+            {
+                MessageBox.Show("Pole kategoria nie może być puste. Proszę o uzupełnienie.", "Puste pole kategoria", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!int.TryParse(amountTextBox.Text, out var test))
+            {
+                MessageBox.Show("Pole wartość musi być liczbą. Proszę o poprawienie.", "Błędna zawartość pola wartość", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (dBConnection.ConnectionTest())
+            {
+                //List<string>[] list = dBConnection.CheckFinancialOperations();
+
+                var receiver = receiverTextBox.Text;
+                var amount = amountTextBox.Text;
+                var category = categoryTextBox.Text;
+                dBConnection.InsertNewFinancialOperation(receiver, amount, category);
+                logWriting logWriting = new logWriting("Użytkownik dodał nową operację finansową.");
+                financialOperationsListBox.Items.Clear();
+                List<string>[] list = dBConnection.CheckFinancialOperations();
+                var index = 0;
+                foreach (var item in list[0])
+                {
+                    financialOperationsListBox.Items.Add(list[0].ElementAt(index).ToString());
+                    index++;
+                }
+            }
+
         }
 
         private void financialOperationsForm_Activated(object sender, EventArgs e)

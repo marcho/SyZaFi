@@ -52,7 +52,6 @@
             this.peselTextBox = new System.Windows.Forms.TextBox();
             this.childrensNamesTextBox = new System.Windows.Forms.TextBox();
             this.childrensBirthdaysTextBox = new System.Windows.Forms.TextBox();
-            this.correspondenceAddressCheckBox = new System.Windows.Forms.CheckBox();
             this.addButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -251,21 +250,11 @@
             this.childrensBirthdaysTextBox.Size = new System.Drawing.Size(100, 20);
             this.childrensBirthdaysTextBox.TabIndex = 23;
             // 
-            // correspondenceAddressCheckBox
-            // 
-            this.correspondenceAddressCheckBox.AutoSize = true;
-            this.correspondenceAddressCheckBox.Location = new System.Drawing.Point(483, 92);
-            this.correspondenceAddressCheckBox.Name = "correspondenceAddressCheckBox";
-            this.correspondenceAddressCheckBox.Size = new System.Drawing.Size(273, 17);
-            this.correspondenceAddressCheckBox.TabIndex = 24;
-            this.correspondenceAddressCheckBox.Text = "Adres korespondencyjny taki sam jak zamieszkania?";
-            this.correspondenceAddressCheckBox.UseVisualStyleBackColor = true;
-            // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(12, 180);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(240, 25);
+            this.addButton.Size = new System.Drawing.Size(134, 25);
             this.addButton.TabIndex = 25;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
@@ -273,9 +262,9 @@
             // 
             // returnButton
             // 
-            this.returnButton.Location = new System.Drawing.Point(258, 180);
+            this.returnButton.Location = new System.Drawing.Point(152, 180);
             this.returnButton.Name = "returnButton";
-            this.returnButton.Size = new System.Drawing.Size(240, 25);
+            this.returnButton.Size = new System.Drawing.Size(134, 25);
             this.returnButton.TabIndex = 26;
             this.returnButton.Text = "Wróć";
             this.returnButton.UseVisualStyleBackColor = true;
@@ -283,9 +272,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(504, 180);
+            this.exitButton.Location = new System.Drawing.Point(292, 180);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(240, 25);
+            this.exitButton.Size = new System.Drawing.Size(134, 25);
             this.exitButton.TabIndex = 27;
             this.exitButton.Text = "Wyjdź";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -295,11 +284,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 212);
+            this.ClientSize = new System.Drawing.Size(490, 212);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.correspondenceAddressCheckBox);
             this.Controls.Add(this.childrensBirthdaysTextBox);
             this.Controls.Add(this.childrensNamesTextBox);
             this.Controls.Add(this.peselTextBox);
@@ -359,7 +347,6 @@
         private System.Windows.Forms.TextBox peselTextBox;
         private System.Windows.Forms.TextBox childrensNamesTextBox;
         private System.Windows.Forms.TextBox childrensBirthdaysTextBox;
-        private System.Windows.Forms.CheckBox correspondenceAddressCheckBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button exitButton;

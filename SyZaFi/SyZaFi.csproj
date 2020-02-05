@@ -87,12 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addFinancialOperation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addFinancialOperation.Designer.cs">
-      <DependentUpon>addFinancialOperation.cs</DependentUpon>
-    </Compile>
     <Compile Include="DBDataSerialization.cs" />
     <Compile Include="configurationForm.cs">
       <SubType>Form</SubType>
@@ -231,9 +225,6 @@
     <Compile Include="restoreEmployeeForm.Designer.cs">
       <DependentUpon>restoreEmployeeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addFinancialOperation.resx">
-      <DependentUpon>addFinancialOperation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="configurationForm.resx">
       <DependentUpon>configurationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +314,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="files\Umowa zlecenie - wzór.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="files\Wypowiedzenie - wzór.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="log\log.log">
